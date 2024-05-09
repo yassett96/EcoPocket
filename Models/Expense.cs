@@ -9,54 +9,56 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace EcoPocket.Models
 {
     /// <summary>
-    /// Incomes
+    /// Expenses
     /// </summary>
-    internal class Incomes
+    public class Expense
     {
         /// <summary>
-        /// Identity incomes
+        /// Identity of expenses, auto incrementable
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID_Incomes { get; set; }
+        public int ID_Expense { get; set; }
 
         /// <summary>
-        /// Description income
+        /// Description of expenses
         /// </summary>
-        public string? Description { get; set; }
+        public string? Description { get; set; } = "";
 
         /// <summary>
-        /// Amoutn income
+        /// Amount that cost expense
         /// </summary>
-        public decimal Amount { get; set; }
+        public decimal? Amount { get; set; }
 
         /// <summary>
-        /// Date of income
+        /// Date expense
         /// </summary>
-        public DateTime Date = DateTime.MinValue;
+        public DateTime? Date { get; set; } = DateTime.MinValue;
 
         /// Foreign keys
 
         /// <summary>
-        /// Connection income categories
+        /// Connection expense categories
         /// </summary>
-        public int ID_income_Category { get; set; }
+        public int? ID_Expense_Category { get; set; }
 
         /// <summary>
-        /// Connection source income
+        /// Connection paymente method
         /// </summary>
-        public int ID_Source { get; set; }
+        public int? ID_Payment_Method { get; set; }
+
 
         /// For navigation
 
         /// <summary>
-        /// Navigation incomes categories
+        /// Navigation expenses categories
         /// </summary>
-        public IncomesCategories? IncomesCategories { get; set; }
+        public ExpenseCategory? ExpenseCategory { get; set; }
 
         /// <summary>
-        /// Navigation source incomes
+        /// Navigation payment methods
         /// </summary>
-        public Source? Source { get; set; }
+        public PaymentMethod? PaymentMethod { get; set; }
+
     }
 }

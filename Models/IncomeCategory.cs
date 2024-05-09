@@ -11,14 +11,14 @@ namespace EcoPocket.Models
     /// <summary>
     /// IncomesCategories
     /// </summary>
-    internal class IncomesCategories
+    public class IncomeCategory
     {
         /// <summary>
         /// Identity of incomes categories, auto incrementable
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID_Incomes_Categories { get; set; }
+        public int ID_Income_Category { get; set; }
         
         /// <summary>
         /// Name incomes categories

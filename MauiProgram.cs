@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
+using EcoPocket.Data;
+using EcoPocket.Services.Interfaces;
+using EcoPocket.Services;
 
 namespace EcoPocket
 {
@@ -14,7 +17,13 @@ namespace EcoPocket
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
 
-            builder.Services.AddMauiBlazorWebView();
+            // Add data base context
+            builder.Services.AddDbContext<EcoPocketDbContextBase>();
+
+            // Add services within its interfaces
+            builder.Services.AddScoped<IIncomeService, IncomeService>();
+
+            builder.Services.AddMauiBlazorWebView();            
 
 #if DEBUG
     		builder.Services.AddBlazorWebViewDeveloperTools();

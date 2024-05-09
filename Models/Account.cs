@@ -1,28 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EcoPocket.Models
 {
     /// <summary>
-    /// Source
+    /// Account
     /// </summary>
-    internal class Source
+    public class Account
     {
         /// <summary>
-        /// Identity source
+        /// Identity account
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID_Source { get; set; }
+        public int ID_Account { get; set; }
 
         /// <summary>
         /// Description source
         /// </summary>
         public string? Description { get; set; }
+
+        /// <summary>
+        /// Icon account
+        /// </summary>
+        public byte[]? Icon { get; set; }
     }
 }
