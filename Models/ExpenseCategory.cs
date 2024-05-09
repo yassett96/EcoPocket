@@ -9,20 +9,25 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace EcoPocket.Models
 {
     /// <summary>
-    /// PaymentsMethods
+    /// ExpenseCategory
     /// </summary>
-    internal class PaymentMethods
+    public class ExpenseCategory
     {
         /// <summary>
-        /// Identity of payment method
+        /// Identity of expenses categories, auto incremental
         /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int? ID_Payment_Method { get; set; }
+        public int ID_Expense_Category { get; set; }
 
         /// <summary>
-        /// Payment method description
+        /// Name of expenses categories
         /// </summary>
-        public string? Description { get; set; } = "";
+        public string? Name { get; set; } = "";
+
+        /// <summary>
+        /// Icon of category
+        /// </summary>
+        public byte[]? Icon { get; set; } = [];
     }
 }

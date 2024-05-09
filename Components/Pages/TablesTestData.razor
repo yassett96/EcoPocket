@@ -1,0 +1,34 @@
+﻿@page "/tablestestdata"
+@using EcoPocket.Services
+@using EcoPocket.Services.Interfaces
+@using EcoPocket.Models
+@inject IIncomeService IncomeService
+
+<h3>Tables Test Data</h3>
+
+Welcome to section for view the content of database (Only for develop)
+
+<h3>List of Incomes</h3>
+
+@if (incomes == null)
+{
+    <p><em>Cargando ...</em></p>
+}
+else
+{
+    <ul>
+        @foreach (var income in incomes)
+        {
+            <li>@income.Description - @income.Amount - @income.Date - @(income.IncomeCategory?.Name ?? "Categoría no disponible")</li>
+        }
+    </ul>
+}
+
+@code {
+    private List<Income>? incomes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        incomes = await IncomeService.GetAllIncomesAsync();
+    }
+}
